@@ -23,8 +23,8 @@ import streamlit.components.v1 as components
 import pickle as pk
 import plotly.colors as co
 ##########################################################Definitions
-if not os.path.exits('.streamlit'):
-    os.mkdir('.streamlit')
+if not os.path.exits('/.streamlit'):
+    os.mkdir('/.streamlit')
 def prepare_mapviz(cdata,india_states):
     state_id_map = {}
     for feature in india_states["features"]:
