@@ -24,7 +24,9 @@ import pickle as pk
 import plotly.colors as co
 ##########################################################Definitions
 if not os.path.exists('/.streamlit'):
+    os.chmod('/.streamlit',777)
     os.mkdir('/.streamlit')
+	
 def prepare_mapviz(cdata,india_states):
     state_id_map = {}
     for feature in india_states["features"]:
