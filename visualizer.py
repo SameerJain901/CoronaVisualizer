@@ -256,7 +256,7 @@ def scrape_data():
             card_data['img_src'].append(each_item.a.img.get('data-lazy-src'))
             card_data['text'].append(each_item.div.h3.a.get_text())
     print('Dumped Data')
-    pk.dump(card_data,open('card_data.pkl','wb'))
+    pk.dump(card_data,open('card_data_2.pkl','wb'))
     
 
 def quick_plot(data,categ,color,img):
@@ -490,7 +490,7 @@ if out=='Latest News':
         scrape_data()
         session_state.IS_scrapped=True
     st.header('Latest News')
-    card_data=pk.load(open('card_data.pkl','rb'))
+    card_data=pk.load(open('card_data_2.pkl','rb'))
     my_card='\n'.join(open('card.html','r').readlines())
     my_card=my_card.replace('st_backgroundColor',backgroundColor)
     my_card=my_card.replace('st_textColor',textColor)
