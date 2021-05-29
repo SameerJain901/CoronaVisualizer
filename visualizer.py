@@ -23,7 +23,7 @@ import streamlit.components.v1 as components
 import pickle as pk
 import plotly.colors as co
 ##########################################################Definitions
-os.chmod('.streamlit/config.toml',755)
+# os.chmod('.streamlit/config.toml',755)
  
 	
 def prepare_mapviz(cdata,india_states):
