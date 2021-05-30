@@ -1,3 +1,13 @@
 chmod 755 .streamlit
 chmod 755 .streamlit/config.toml
-streamlit run visualizer_heroku.py
+
+echo “\
+[general]\n\
+email = \”sameerjain901@gmail.com\”\n\
+“ > ~/.streamlit/credentials.toml
+
+echo "[server]
+headless = true
+port = $PORT
+enableCORS = false
+" > ~/.streamlit/config.toml

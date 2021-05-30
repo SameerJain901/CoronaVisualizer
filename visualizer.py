@@ -211,11 +211,14 @@ def magnify():
 
 def prepare_vtdata():
     df = pd.read_csv("vaccine_doses_statewise.csv",index_col='State')
-    df['Total']=df.iloc[:,-2]#df.sum(axis=1)
-    df.drop(['Miscellaneous', 'Total'],inplace=True)
+    total=[]
+    for index in df.index:    
+        total.append(df[df.index==index].sum(axis=1).values[0])
+    df['Total']=total
     df['Status']='Vaccinated'
     df.reset_index(inplace=True)
     df_vacc=pd.DataFrame(df,columns=['Total','Status','State'])
+
 
     dt=pd.read_csv("statewise_tested_numbers_data.csv")
     dt['Updated On']=pd.to_datetime(dt['Updated On'],format='%d/%m/%Y')
