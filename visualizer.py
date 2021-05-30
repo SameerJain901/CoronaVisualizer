@@ -148,7 +148,7 @@ def update_theme(primaryColor,backgroundColor,secondaryBackgroundColor,textColor
 # Side Bar comfiguration
 st.set_page_config(  # Alternate names: setup_page, page, layout
 	layout="wide",  # Can be "centered" or "wide". In the future also "dashboard", etc.
-	initial_sidebar_state="collapsed",  # Can be "auto", "expanded", "collapsed"
+	initial_sidebar_state="expanded",  # Can be "auto", "expanded", "collapsed"
     )
 st.sidebar.title('Covid19 Data Visualizer')
 pages=['Latest News','Google\'s Mobility Report','Vaccination Reports',

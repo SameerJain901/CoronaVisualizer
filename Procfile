@@ -1,1 +1,1 @@
-web: sh main.sh && streamlit run visualizer_heroku.py
+web: streamlit run visualizer_heroku.py

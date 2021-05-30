@@ -131,6 +131,14 @@ dark='''
             '''
 #--------------------------------------------------------------------------------------------------------- 
 # Theming 
+extra ='''
+
+[server]
+runOnSave = true
+headless = true
+enableCORS = true
+
+'''
 def update_theme(primaryColor,backgroundColor,secondaryBackgroundColor,textColor,font):
     # Theme Base
     theme_data=['[theme]\n\n','primaryColor=\"%s\"\n'%(primaryColor),
@@ -141,6 +149,9 @@ def update_theme(primaryColor,backgroundColor,secondaryBackgroundColor,textColor
     # os.remove('.streamlit/config.toml')
     theme_file=open('.streamlit/config.toml','w+')
     theme_file.writelines(theme_data)
+    theme_file.write(extra)
+    theme_file.close()
+    # SessionState.trigger_rerun()
 
 
 # Starting with the process
@@ -148,7 +159,7 @@ def update_theme(primaryColor,backgroundColor,secondaryBackgroundColor,textColor
 # Side Bar comfiguration
 st.set_page_config(  # Alternate names: setup_page, page, layout
 	layout="wide",  # Can be "centered" or "wide". In the future also "dashboard", etc.
-	initial_sidebar_state="collapsed",  # Can be "auto", "expanded", "collapsed"
+	initial_sidebar_state="expanded",  # Can be "auto", "expanded", "collapsed"
     )
 st.sidebar.title('Covid19 Data Visualizer')
 pages=['Latest News','Google\'s Mobility Report','Vaccination Reports',
@@ -157,7 +168,7 @@ pages=['Latest News','Google\'s Mobility Report','Vaccination Reports',
 out=st.sidebar.radio('Page:',pages)
 
 st.sidebar.header('Theme:')
-theme=st.sidebar.selectbox('Select your theme:',['Dark','Light','Quiet-Light','Solarized'])
+theme=st.sidebar.selectbox('Select your theme:',['Dark','Light','Quiet-Light','Solarized'],)
 selected_theme=st.sidebar.empty()
 # End of side bar configuration
 
