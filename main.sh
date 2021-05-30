@@ -1,5 +1,4 @@
-chmod 755 ~/.streamlit/config.toml
-chmod 755 ~/.streamlit
+chmod 755 .streamlit/config.toml
 
 echo "\
 [general]\n\
