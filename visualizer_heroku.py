@@ -217,6 +217,7 @@ def prepare_vtdata():
     df['Total']=total
     df['Status']='Vaccinated'
     df.reset_index(inplace=True)
+    df.drop([df[df.State=='Miscellaneous'].index[0],df[df.State=='Total'].index[0]],inplace=True,axis=0)
     df_vacc=pd.DataFrame(df,columns=['Total','Status','State'])
 
 
