@@ -1,5 +1,4 @@
-chmod 755 .streamlit
-chmod 755 .streamlit/config.toml
+mkdir -p ~/.streamlit
 
 echo “\
 [general]\n\
@@ -8,6 +7,6 @@ email = \”sameerjain901@gmail.com\”\n\
 
 echo "[server]
 headless = true
-port = 8501
+port = $PORT
 enableCORS = false
 " > ~/.streamlit/config.toml
