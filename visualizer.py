@@ -139,7 +139,7 @@ def update_theme(primaryColor,backgroundColor,secondaryBackgroundColor,textColor
     'textColor=\"%s\"\n'%(textColor),
     'font=\"%s\"\n'%(font)]
     # os.remove('.streamlit/config.toml')
-    theme_file=open('.streamlit/config.toml','w+')
+    theme_file=open('.streamlit/config.toml','w')
     theme_file.writelines(theme_data)
 
 
