@@ -44,7 +44,7 @@ def prepare_mapviz(cdata,india_states):
 
 ##########################################################Prepare_data
 loader.initialize()
-session_state = SessionState.get(IS_scrapped=False,theme='Solarized',sid=random.randInt(0,100))
+session_state = SessionState.get(IS_scrapped=False,theme='Solarized',sid=random.randint(0,100))
 india_states = json.load(open("out2.json"))
 india_states=geojson_rewind.rewind(india_states, rfc7946=False)
 
