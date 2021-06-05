@@ -8,7 +8,7 @@ import numpy as np
 import re
 import requests as rq
 from bs4 import BeautifulSoup
-
+import random
 import json
 import datetime
 import logging 
@@ -44,7 +44,7 @@ def prepare_mapviz(cdata,india_states):
 
 ##########################################################Prepare_data
 loader.initialize()
-session_state = SessionState.get(IS_scrapped=False)
+session_state = SessionState.get(IS_scrapped=False,theme='Solarized',sid=random.randInt(0,100))
 india_states = json.load(open("out2.json"))
 india_states=geojson_rewind.rewind(india_states, rfc7946=False)
 
@@ -156,7 +156,7 @@ pages=['Latest News','Google\'s Mobility Report','Vaccination Reports',
 out=st.sidebar.radio('Page:',pages)
 
 st.sidebar.header('Theme:')
-theme=st.sidebar.selectbox('Select your theme:',['Dark','Light','Quiet-Light','Solarized'])
+theme=st.sidebar.selectbox('Select your theme:',['Dark','Light','Quiet-Light','Solarized'],value=session_state.theme)
 selected_theme=st.sidebar.empty()
 # End of side bar configuration
 
@@ -190,6 +190,7 @@ else:
     textColor="#fafafa"
     font="Monospace"
 
+session_state.theme=theme
 update_theme(primaryColor,backgroundColor,secondaryBackgroundColor,textColor,font)
 
 ########################################################################################################################################################################
