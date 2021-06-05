@@ -736,12 +736,14 @@ if out=='Data Reports':
     data.set_index(data.Date)
     data.sort_index(inplace=True)
     state=st.selectbox('Select the state for state related data: ',list(data.State.unique()))
-    
+    data.Date=pd.to_datetime(data.Date,dayfirst=True,format='%d/%m/%Y')
+    data.sort_values(by='Date',inplace=True,ascending=False)
+    data.set_index('Date',inplace=True)
     data=data[data.State==state]
     styled_data=data.style
     styles = [
-        dict(selector="tr:hover",props=[("background-color", "#eccbd9")]),
-        dict(selector="th:hover",props=[("background-color", "#eccbd9")]),
+        dict(selector="tr:hover",props=[("background-color", "#eccbd9"), ('color', '{}'.format(secondaryBackgroundColor))]),
+        dict(selector="th:hover",props=[("background-color", "#eccbd9"), ('color', '{}'.format(secondaryBackgroundColor))]),
         dict(selector="th", props=[('background-color','{}'.format(secondaryBackgroundColor)),
                                 ("font-size", "120%"),
                                 ("text-align", "center"),
