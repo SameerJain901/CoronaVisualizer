@@ -154,9 +154,9 @@ pages=['Latest News','Google\'s Mobility Report','Vaccination Reports',
         'Map','Data Reports','Forecast Reports',
 ]
 out=st.sidebar.radio('Page:',pages)
-
+themes=['Dark','Light','Quiet-Light','Solarized']
 st.sidebar.header('Theme:')
-theme=st.sidebar.selectbox('Select your theme:',['Dark','Light','Quiet-Light','Solarized'],value=session_state.theme)
+theme=st.sidebar.selectbox('Select your theme:',themes,index=themes.index(session_state.theme))
 selected_theme=st.sidebar.empty()
 # End of side bar configuration
 
